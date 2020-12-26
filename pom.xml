@@ -75,7 +75,20 @@
             <version>${glassfish.version}</version>
             <scope>test</scope>
         </dependency>
+        
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.22</version>
+</dependency>
+
+
+
+
+        
     </dependencies>
+    
     <properties>
  			<jersey.version>1.19.4</jersey.version>
         <glassfish.version>3.1.1</glassfish.version>

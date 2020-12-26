@@ -1,6 +1,5 @@
 package com.telusko.demorest2;
 
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -8,17 +7,16 @@ import java.util.regex.Pattern;
 
 import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
-
 public class NotificationTemplate {
 	int id;
 	static int counter=0;
 	private String subject;
 	private String body;
-	Language language;	
+	int language;	
 	public NotificationTemplate() {
 		// TODO Auto-generated constructor stub
 	}
-	public NotificationTemplate(String subject,String body,Language L)
+	public NotificationTemplate(String subject,String body,int L)
 	{
 		id=++counter;
 		this.subject=subject;
@@ -39,11 +37,11 @@ public class NotificationTemplate {
 		return body;
 	}
 
-	public Language getLanguage() {
-		return language;
-	}
-	public void setLanguage(Language language) {
+	public void setLanguage(int language) {
 		this.language = language;
+	}
+	public int getLanguage() {
+		return language;
 	}
 	
 	
@@ -53,10 +51,6 @@ public class NotificationTemplate {
 	public  void setId(int id) {
 		this.id = id;
 	}
-	@Override
-	public String toString() {
-		
-		return "id = "+id+" name = "+subject+" body = "+body;
-	}
+	
 	
 }

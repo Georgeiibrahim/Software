@@ -1,8 +1,6 @@
  package com.telusko.demorest2;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -15,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("template")
 public class controllar {
-MemoryNotificationTemplateAccess repo=new MemoryNotificationTemplateAccess();
+	DatabaseAccess repo=new DatabaseAccess();
 
 @GET
 @Produces(MediaType.APPLICATION_XML)
@@ -24,7 +22,7 @@ public List<NotificationTemplate> getTemplates(){
 	return repo.getTemplates();
 }
 @GET
-@Path("templateR/id")
+@Path("templateR/{id}")
 @Produces(MediaType.APPLICATION_XML)
 public NotificationTemplate tempread(@PathParam("id")int id){
 	return repo.Read(id);
@@ -39,18 +37,18 @@ public NotificationTemplate getnoti(@PathParam("id")int id) {
 
 @POST
 @Path("templateC")
-@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+@Consumes(MediaType.APPLICATION_XML)
 public NotificationTemplate tempcreate(NotificationTemplate a) {
 	System.out.println(a);
 	repo.Create(a);
 return a;
 }
 @PUT
-@Path("templateU/{id}")
+@Path("templateU")
 @Produces(MediaType.APPLICATION_XML)
-public NotificationTemplate tempupdate(NotificationTemplate a,@PathParam("id")int id) {
+public NotificationTemplate tempupdate(NotificationTemplate a) {
 	System.out.println(a);
-	repo.Update(id, a);
+	repo.Update(a);
 	return a;
 	
 }
